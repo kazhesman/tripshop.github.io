@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kreon:wght@300;400;500;700&family=Lacquer&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <!-- <p id="mainword">scroll down <br><img src="img2.png" alt=""></p>
+    <div id="transition"></div> -->
+    <header>
+        <div id="landing">
+            <div style="
+            cursor: pointer;
+            position: sticky;
+            text-align: center;
+            top: 10px;
+          ">
+                <video id="myVideo" style="width: 100%" src="./videos/video1.mp4" autoplay muted></video>
+            </div>
+            <div id="header-gradient">
+                <img src="./images/Trippie_redd.svg" id="main_text" style="
+            " srcset="" />
+                <img src="images/img1.png" alt="" srcset="" style="opacity: 0" />
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="aside_menu">
+            <aside>
+                <div id="checkbox-menu">
+                    <!-- <p style="color: white; margin: 0" hidden>Привет, мир!</p> -->
+                    <form action="/action_page.php">
+                        <label for="new">
+                            <input type="radio" id="new" class="real-checkbox" name="group" value="new" />
+                            <span class="custom-checkbox"></span> NEW</label><br />
+                        <label for="old">
+                            <input type="radio" id="old" class="real-checkbox" name="group" value="old" />
+                            <span class="custom-checkbox"></span> OLD</label><br />
+                        <label for="lowprice">
+                            <input type="radio" id="lowprice" class="real-checkbox" name="group" value="lowprice" />
+                            <span class="custom-checkbox"></span> LOW PRICE</label><br />
+                        <label for="highprice">
+                            <input type="radio" id="highprice" class="real-checkbox" name="group" value="highprice" />
+                            <span class="custom-checkbox"></span> HIGH PRICE</label><br />
+                        <label for="bestdeals">
+                            <input type="radio" id="bestdeals" class="real-checkbox" name="group" value="bestdeals" />
+                            <span class="custom-checkbox"></span> BEST DEALS</label><br />
+                        <label for="saled">
+                            <input type="radio" id="saled" class="real-checkbox" name="group" value="saled" />
+                            <span class="custom-checkbox"></span> SALED</label><br />
+                    </form>
+                </div>
+            </aside>
+            <div id="info">
+                <div id="info-nav">
+                    <p style="color: white; margin: 0">settings</p>
+                    <p style="color: white; margin: 0">help</p>
+                </div>
+            </div>
+        </div>
+        <section>
+            <a href="https://example.com" class="link-div" id="example" hidden>
+                <div class="products">
+                    <div class="product_img">
+                        <img src="products/SUPERFIGHTERS_HEAVEN_BLESS_SOLIEDER/img1.png" alt="" srcset="" />
+                    </div>
+                    <div class="product_info">
+                        <div class="product_name">
+                            <p>SUPERFIGHTERS HEAVEN BLESS SOLIEDER</p>
+                        </div>
+                        <div class="product_price">
+                            <p>35,99$</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>О компании</h3>
+                <p>Мы предоставляем лучшие услуги для вас.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>Email: info@example.com</p>
+                <p>Телефон: +1 (999) 123-45-67</p>
+            </div>
+            <div class="footer-section">
+                <h3>Социальные сети</h3>
+                <a href="#">Facebook</a> | <a href="#">Instagram</a> |
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <p class="footer-copy">&copy; 2025 Все права защищены</p>
+    </footer>
+    <script>
+        const video = document.getElementById("myVideo");
+        const header = document.getElementById("header-gradient");
+
+        // Добавляем обработчик события на клик
+        video.addEventListener("click", function () {
+            // Сбрасываем видео на начало
+            video.currentTime = 0;
+            // Начинаем воспроизведение
+            video.play();
+        });
+        // Добавляем обработчик события на клик
+        header.addEventListener("click", function () {
+            // Сбрасываем видео на начало
+            video.currentTime = 0;
+            // Начинаем воспроизведение
+            video.play();
+        });
+        window.addEventListener("scroll", function () {
+            let video = document.querySelector("video");
+            let scrollTop = window.scrollY;
+            let newWidth = Math.max(50, 100 - scrollTop / 10);
+            video.style.width = newWidth + "%";
+        });
+        var productsArray = [];
+        function getData(name, number) {
+            fetch("./products/" + name + "/data.json") // Загружаем JSON
+                .then((response) => response.json()) // Преобразуем в объект
+                .then((products) => {
+                    productsOutPut(products);
+                    productsArray[productsArray.length] = products;
+                    return products;
+                })
+                .catch((error) => console.error("Ошибка загрузки JSON:", error));
+        }
+        var names = [
+            "SUPERFIGHTERS_HEAVEN_BLESS_SOLIEDER",
+            "SUPERFIGHTERS_RETERNITY_V0",
+            "SUPERFIGHTERS_ZIP_DARK_KNIGHT_AMMO",
+            "SUPERFIGHTERS_PRIME_FADED_HOOD",
+            "DARKCHARGED_NIGHTSTALKERS_ARMOR",
+            "GHOSTWALKER_SHIELD",
+        ];
+        function sort(value, arr) {
+            document.querySelector("section").innerHTML = "";
+            let ifSaled = (a, b) => {
+                // Если у a статус "saled", он должен быть в конце
+                if (a.status === "saled" && b.status !== "saled") {
+                    return 1; // a уходит в конец
+                }
+                if (a.status !== "saled" && b.status === "saled") {
+                    return -1; // b уходит в конец
+                }
+                // Если статусы одинаковые
+                return 0; 
+            };
+            switch (value) {
+                case "lowprice":
+                    arr.sort((a, b) => ifSaled(a, b) || a.price - b.price);
+                    break;
+                case "highprice":
+                    arr.sort((a, b) => ifSaled(a, b) || b.price - a.price);
+                    break;
+                // date: '2025-04-01'
+                case "new":
+                    arr.sort((a, b) => ifSaled(a, b) || new Date(b.date) - new Date(a.date));
+                    break;
+                case "old":
+                    arr.sort((a, b) => ifSaled(a, b) || new Date(a.date) - new Date(b.date));
+                    break;
+                case "bestdeals":
+                    arr.sort((a, b) => ifSaled(a, b) || (b.status === "onsale") - (a.status === "onsale"));
+                    break;
+                case "saled":
+                    arr.sort((a, b) => (b.status === "saled") - (a.status === "saled"));
+                    break;
+                default:
+                    break;
+            }
+            arr.map(productsOutPut);
+        }
+
+        // for (let i = 0; i < names.length; i++) {
+        //     getData(names[i]);
+        // }
+        // Создаем массив промисов и ждем их выполнения
+        Promise.all(names.map(getData))
+            .then(() => {
+                console.log(
+                    "Все JSON загружены:",
+                    productsArray,
+                    productsArray.length
+                );
+                const form = document.getElementById("checkbox-menu");
+
+                // Добавляем обработчик события на форму
+                form.addEventListener("change", (event) => {
+                    // Получаем значение выбранной радиокнопки
+                    sort(event.target.value, productsArray);
+                });
+
+                // Здесь можно выполнить код после загрузки всех данных
+            })
+            .catch((error) =>
+                console.error("Ошибка при загрузке всех JSON:", error)
+            );
+
+        function productsOutPut(product) {
+            function productCheckStatus(status) {
+                switch (status) {
+                    case "onsale":
+                        return `
+                        <p>${product.name}</p>
+                        </div>
+                        <div class="product_price">
+                        <p style="color: #e71f08;"><span>${product.price}$</span> ${product.price_new}$</p>`;
+                        break;
+                    case "saled":
+                        return `
+                        <p style="color: #6e7073;">${product.name}</p>
+                        </div>
+                        <div class="product_price">
+                        <p></p>`;
+                        break;
+                    default:
+                        return `
+                        <p>${product.name}</p>
+                        </div>
+                        <div class="product_price">
+                        <p>${product.price}$</p>`;
+                        break;
+                }
+            }
+
+            document.querySelector("section").insertAdjacentHTML(
+                "beforeend",
+                `
+            <a href="product.html?id=${product.folder.replaceAll(
+                    "_",
+                    "-"
+                )}" class="link-div">
+                <div class="products">
+                    <div class="product_img">
+                        <img class="product-image" src="products/${product.folder
+                }/img1.png" alt="" srcset="" />
+                        <img class="product-image-back" src="products/${product.folder
+                }/img2.png" alt="" srcset="" />
+                    </div>
+                    <div class="product_info">
+                        <div class="product_name">
+
+                            ${productCheckStatus(product.status)}
+                            <br>
+                              <br>
+                                <br>
+                        </div>
+                    </div>
+                </div>
+            </a>
+    `
+            );
+        }
+
+        // document.querySelector("section").innerHTML = "";
+        //      const data = [
+        //     { name: "Объект 1", date: "2024-03-10" },
+        //     { name: "Объект 2", date: "2023-05-15" },
+        //     { name: "Объект 3", date: "2025-01-01" }
+        // ];
+
+        // // Сортировка по возрастанию (от самой ранней к самой поздней)
+        // data.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        // console.log(data);
+    </script>
+</body>
+
+</html>

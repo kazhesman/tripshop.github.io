@@ -1,0 +1,20 @@
+[
+    {
+        "name": "kazhesman",
+        "price": 23,
+        "description": "",
+        "folder": "kazhesman"
+    },
+    {
+        "name": "kazhesman1",
+        "price": 231,
+        "description": "",
+        "folder": "kazhesman1"
+    },
+    {
+        "name": "Штаны",
+        "price": 35,
+        "description": "asd1<br \/>\r\nasd112313111",
+        "folder": "----------"
+    }
+]

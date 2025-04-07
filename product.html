@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kreon:wght@300;400;500;700&family=Lacquer&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <!-- <p id="mainword">scroll down <br><img src="img2.png" alt=""></p>
+    <div id="transition"></div> -->
+    <header>
+        <div id="landing">
+            <div style="cursor: pointer;position: sticky; text-align: center; top: 10px;">
+
+                <video id="myVideo" style="width: 100%;" src="./videos/video1.mp4" autoplay muted></video>
+            </div>
+            <div id="header-gradient">
+                <img src="./images/Trippie_redd.svg" id="main_text" style="
+              margin-top: 100px;
+              position: absolute;
+              z-index: 10;
+              width: 600px;
+            " srcset="" />
+                <img src="images/img1.png" alt="" srcset="" style="opacity: 0;" />
+            </div>
+        </div>
+    </header>
+    <main style="justify-content: center;">
+        <div id="content">
+            <div class="pictures">
+                <div class="slider">
+                    <div class="slides">
+                        <!-- <img src="/products/SUPERFIGHTERS_RETERNITY_V0/img1.png" class="slide">
+                        <img src="/products/SUPERFIGHTERS_RETERNITY_V0/img2.png" class="slide">
+                        <img src="/products/SUPERFIGHTERS_RETERNITY_V0/img3.png" class="slide"> -->
+                    </div>
+                    <button class="prev" onclick="prevSlide()">&#10094;</button>
+                    <button class="next" onclick="nextSlide()">&#10095;</button>
+                </div>
+            </div>
+            <div class="product-order">
+                <div class="item-name">
+                    <p>SUPERFIGHTERS HEAVEN BLESS SOLIEDER</p>
+                </div>
+                <div class="desc-name"></div>
+                <div class="price">
+                    <div style="width: 84px; margin-right: 4px;">
+                        <div data-encore-id="formSelect" class="SelectContainer-sc-wv4dj5-0 MrgtR">
+                            <select id="currency" class="Select-sc-3qvhho-0 ePcDwx CurrencySelect___StyledFormSelect-sc-16kxx8k-0 jVrgxv">
+                                <option value="USD">USD</option><option value="EUR">EUR</option>
+                            </select>
+                            <svg role="img" height="16" width="16" iconSize="small" aria-hidden="true" class="Svg-sc-ytk21e-0 eYitNi SelectArrow-sc-12qvh0d-0 iAeLHb" viewBox="0 0 16 16" data-encore-id="icon">
+                                <path d="M.47 4.97a.75.75 0 0 1 1.06 0L8 11.44l6.47-6.47a.75.75 0 1 1 1.06 1.06L8 13.56.47 6.03a.75.75 0 0 1 0-1.06z"></path></svg>
+                            </div></div>
+                    <p>35,99$</p>
+                </div>
+                <div class="size">
+                    <label for="size-chos"><span>Size</span></label>
+                    <select name="size-chos" id="">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <div class="count">
+                    <label for="count-chos"><span>Count</span></label>
+                    <select name="count-chos" id="">
+                        <option value="1" selected="">1</option>
+                        <option value="2" >2</option>
+                        <option value="3" >3</option>
+                        <option value="4" >4</option>
+                    </select>
+                </div>
+                <div class="buttons">
+                    <button><span>Добавить в корзину</span></button>
+                    <button><span style="margin: 0 5px;">Купить</span></button>
+
+                </div>
+                <div class="warning">
+                    <p>Нажав кнопку «Купить», вы покинете Trippie redd и перейдете в сервис стороннего поставщика. Любые
+                        действия на странице этого сервиса будут регулироваться его Политикой конфиденциальности и
+                        Условиями использования. Поставщик может делиться со Trippie redd информацией о вашем заказе. Эти
+                        данные нужны нам, чтобы точнее определять интересы пользователей и улучшать наши продукты. Вся
+                        информация используется в соответствии с Политикой конфиденциальности Trippie redd. Ссылки на
+                        продукцию и сведения о ней, включая цены и валюту, предоставлены продавцом и могут измениться.
+                        Продавцы могут взимать дополнительную плату, размер которой также может меняться. Предложения
+                        действуют, пока товар есть в наличии.</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <footer>
+    </footer>
+    <script>
+        const video = document.getElementById('myVideo');
+        const header = document.getElementById('header-gradient');
+
+        // Добавляем обработчик события на клик
+        video.addEventListener('click', function () {
+            // Сбрасываем видео на начало
+            video.currentTime = 0;
+            // Начинаем воспроизведение
+            video.play();
+        });
+        // Добавляем обработчик события на клик
+        header.addEventListener('click', function () {
+            // Сбрасываем видео на начало
+            video.currentTime = 0;
+            // Начинаем воспроизведение
+            video.play();
+        });
+        window.addEventListener("scroll", function () {
+            let video = document.querySelector("video");
+            let scrollTop = window.scrollY;
+            let newWidth = Math.max(50, 100 - scrollTop / 10);
+            video.style.width = newWidth + "%";
+        })
+        var productsArray = [];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get("id");
+
+        function getData(name, number) {
+            fetch("./products/" + name + "/data.json") // Загружаем JSON
+                .then((response) => response.json()) // Преобразуем в объект
+                .then((product) => {
+                    // productsOutPut(products);
+                    productsArray[productsArray.length] = product;
+                    if(product.folder == productId.replaceAll("-","_")) {
+                        productOrder(product);
+
+                    }
+                    return product;
+                })
+                .catch((error) => console.error("Ошибка загрузки JSON:", error));
+        }
+        var names = [
+            "SUPERFIGHTERS_HEAVEN_BLESS_SOLIEDER",
+            "SUPERFIGHTERS_RETERNITY_V0",
+            "SUPERFIGHTERS_ZIP_DARK_KNIGHT_AMMO",
+            "SUPERFIGHTERS_PRIME_FADED_HOOD",
+            "DARKCHARGED_NIGHTSTALKERS_ARMOR",
+            "GHOSTWALKER_SHIELD",
+        ];
+
+        for (let i = 0; i < names.length; i++) {
+            getData(names[i]);
+        }
+
+        function productsOutPut(product) {
+
+            document.querySelector("section").insertAdjacentHTML(
+                "beforeend",
+                `
+            <a href="https://example.com" class="link-div">
+                <div class="products">
+                    <div class="product_img">
+                        <img class="product-image" src="products/${product.folder}/img1.png" alt="" srcset="" />
+                        <img class="product-image-back" src="products/${product.folder}/img2.png" alt="" srcset="" />
+                    </div>
+                    <div class="product_info">
+                        <div class="product_name">
+                            <p>${product.name}</p>
+                        </div>
+                        <div class="product_price">
+                            <p>${product.price}$</p>
+                            <br>
+                              <br>
+                                <br>
+                        </div>
+                    </div>
+                </div>
+            </a>
+    `
+            );
+
+
+        }
+        function productOrder(product) {
+
+
+        // Ищем товар по id
+        // const product = products.find(p => p.folder === productId.replaceAll("-","_"));
+
+        // Если товар найден, отображаем его, иначе показываем сообщение об ошибке
+        if (product) {
+            document.querySelector(".item-name p").textContent = product.name;
+            // document.getElementById("product-description").textContent = product.description;
+            document.querySelector(".price p").textContent = `${product.price}`;
+            for (let i = 1; i < product.imagecount + 1; i++) {
+                document.querySelector(".slides").insertAdjacentHTML(
+                "beforeend",
+                `<img src="/products/${product.folder}/img${i}.png" class="slide">`
+            );
+            }
+            slides = document.querySelector('.slides');
+            totalSlides = document.querySelectorAll('.slide').length;
+
+        } else {
+            document.querySelector(".item-name p").textContent = "Товар не найден";
+            // document.getElementById("product-description").textContent = "";
+            document.querySelector(".price p").textContent = "";
+        }
+            
+        }
+
+        document.getElementById("currency").addEventListener("change", function() {
+            let selectedValue = this.value;
+            if(selectedValue == "USD") {
+                document.getElementById("product-price").textContent = `${product.price}$`;
+            }
+            if(selectedValue == "EUR") {
+                document.getElementById("product-price").textContent = `${product.price * 0.92}€`;
+            }
+
+        })
+
+
+        let index = 0;
+        let slides = document.querySelector('.slides');
+        let totalSlides = document.querySelectorAll('.slide').length;
+
+function updateSlide() {
+    slides.style.transform = `translateX(${-index * 500}px)`;
+}
+
+function nextSlide() {
+    index = (index + 1) % totalSlides;
+    updateSlide();
+}
+
+function prevSlide() {
+    index = (index - 1 + totalSlides) % totalSlides;
+    updateSlide();
+}
+// Обработка свайпа на мобильных устройствах
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.querySelector('.slider').addEventListener('touchstart', (event) => {
+    touchStartX = event.touches[0].clientX;
+});
+
+document.querySelector('.slider').addEventListener('touchend', (event) => {
+    touchEndX = event.changedTouches[0].clientX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    let swipeThreshold = 50; // Минимальное расстояние для свайпа
+    if (touchStartX - touchEndX > swipeThreshold) {
+        nextSlide(); // Свайп влево — следующий слайд
+    } else if (touchEndX - touchStartX > swipeThreshold) {
+        prevSlide(); // Свайп вправо — предыдущий слайд
+    }
+}
+
+// Автоматическое переключение каждые 6 секунды
+// setInterval(nextSlide, 6000);
+
+        // document.querySelector("section").innerHTML = "";
+        //      const data = [
+        //     { name: "Объект 1", date: "2024-03-10" },
+        //     { name: "Объект 2", date: "2023-05-15" },
+        //     { name: "Объект 3", date: "2025-01-01" }
+        // ];
+
+        // // Сортировка по возрастанию (от самой ранней к самой поздней)
+        // data.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        // console.log(data);
+    </script>
+</body>
+
+</html>
