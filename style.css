@@ -467,18 +467,20 @@ button {
     section {
         min-height: 170vh;
         width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 48px 16px;
+        justify-content: space-between;
+        margin-left: 45px;
+
     }
     .link-div {
-        height: 50%;
-        width: 50%;
-        overflow: hidden;
+        /* transform: scale(0.7); */
+        /* width: 48%;
+        transform-origin: top left; */
+
     }
     .products {
-        width: 50%;
-       height: 50%;
+        /* transform: scale(0.7); */
+        /* width: 48%;
+        transform-origin: top left; */
     }
     #main_text {
         margin-top: 200px !important;
