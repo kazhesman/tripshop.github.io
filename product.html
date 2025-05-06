@@ -99,6 +99,44 @@
         </div>
     </main>
     <footer>
+        <img src="images/bgbape.jpg" alt="background" class="footer-bg">
+        <div class="footer-overlay"></div>
+        <div id="footer-content">
+            <div id="store-info" class="col">
+                <span class="widget-title">STORE INFORMATION</span>
+                <div class="is-divider small"></div>
+                <div class="textwidget">
+                    <p>Trippie Redd Store</p>
+                    <p>Email us: contact@shop-trippieredd.com</p>
+                    <p>Office Hours: Mon-Fri, 9am-6pm Eastern time</p>
+                </div>
+            </div>
+            <div id="help-info" class="col">
+                <span class="widget-title">HELP &amp; INFORMATION</span>
+                <div class="is-divider small"></div>
+                <div class="footer-ul">
+                    <li>Delivery Delays Due To Covid-19</li>
+                    <li>About us</li>
+                    <li>Contact Us</li>
+                    <li>Size Guide</li>
+                    <li>FAQs</li>
+                    <li>Copyright Dispute Policy</li>
+                </div>
+            </div>
+            <div id="customer-service" class="col">
+                <span class="widget-title">CUSTOMER SERVICES</span>
+                <div class="is-divider small"></div>
+                <div class="footer-ul">
+                    <li>Returns and Refunds Policy</li>
+                    <li>Privacy Policy</li>
+                    <li>Terms of Service</li>
+                    <li>Payment Policy</li>
+                    <li>Secure Shopping</li>
+                    <li>Shipping Policy</li>
+                </div>
+            </div>
+            </div>
+        </div>
     </footer>
     <script>
         const video = document.getElementById('myVideo');
@@ -164,8 +202,7 @@
             <a href="https://example.com" class="link-div">
                 <div class="products">
                     <div class="product_img">
-                        <img class="product-image" src="products/${product.folder}/img1.png" alt="" srcset="" />
-                        <img class="product-image-back" src="products/${product.folder}/img2.png" alt="" srcset="" />
+                     <img class="product-image" src="products/${product.folder}/img1.png" alt="" srcset="" />
                     </div>
                     <div class="product_info">
                         <div class="product_name">
@@ -185,6 +222,8 @@
 
 
         }
+        // 
+        // <img class="product-image-back" src="products/${product.folder}/img2.png" alt="" srcset="" />
         function productOrder(product) {
 
 
@@ -195,7 +234,26 @@
         if (product) {
             document.querySelector(".item-name p").textContent = product.name;
             // document.getElementById("product-description").textContent = product.description;
-            document.querySelector(".price p").textContent = `${product.price}`;
+
+
+            if(product.status == 'saled') {
+                document.querySelector(".price p").textContent = `
+                saled
+                `;
+                document.querySelector(".price p").style.cssText = "color: #6e7073;";
+            }
+            else {
+            if(product.status == 'onsale') {
+                document.querySelector(".price p").innerHTML = `
+                <p style="color: #e71f08;" class='product_price'><span>${product.price}$</span> ${product.price_new}$</p>
+                `;
+            }
+            else {
+                document.querySelector(".price p").textContent = `${product.price}$`;
+            }
+        }
+
+        
             for (let i = 1; i < product.imagecount + 1; i++) {
                 document.querySelector(".slides").insertAdjacentHTML(
                 "beforeend",

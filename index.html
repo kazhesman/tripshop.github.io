@@ -25,9 +25,9 @@
                 <video id="myVideo" style="width: 100%" src="./videos/video1.mp4" autoplay muted></video>
             </div>
             <div id="header-gradient">
-                <img src="./images/Trippie_redd.svg" id="main_text" style="
-            " srcset="" />
-                <img src="images/img1.png" alt="" srcset="" style="opacity: 0" />
+                <img src="./images/Trippie_redd.svg" id="main_text" srcset="" />
+                <img src="images/Group 2.svg" alt="" srcset="" id="logo">
+                <!-- <img src="images/img1.png" alt="" srcset="" style="opacity: 0" /> -->
             </div>
         </div>
     </header>
@@ -60,8 +60,12 @@
             </aside>
             <div id="info">
                 <div id="info-nav">
-                    <p style="color: white; margin: 0">settings</p>
-                    <p style="color: white; margin: 0">help</p>
+                    <a href="http://example.com" target="_blank" rel="">
+                        <p><img src="images/settings.png" alt="" srcset="">settings</p>
+                    </a>
+                    <a href="https://github.com/kazhesman/tripshop.github.io/blob/main/README.md" target="_blank">
+                        <p><img src="images/settings2.png" alt="" srcset="">help</p>
+                    </a>
                 </div>
             </div>
         </div>
@@ -84,7 +88,45 @@
         </section>
     </main>
     <footer>
-        <div class="footer-container">
+        <img src="images/bgbape.jpg" alt="background" class="footer-bg">
+        <div class="footer-overlay"></div>
+        <div id="footer-content">
+            <div id="store-info" class="col">
+                <span class="widget-title">STORE INFORMATION</span>
+                <div class="is-divider small"></div>
+                <div class="textwidget">
+                    <p>Trippie Redd Store</p>
+                    <p>Email us: contact@shop-trippieredd.com</p>
+                    <p>Office Hours: Mon-Fri, 9am-6pm Eastern time</p>
+                </div>
+            </div>
+            <div id="help-info" class="col">
+                <span class="widget-title">HELP &amp; INFORMATION</span>
+                <div class="is-divider small"></div>
+                <div class="footer-ul">
+                    <li>Delivery Delays Due To Covid-19</li>
+                    <li>About us</li>
+                    <li>Contact Us</li>
+                    <li>Size Guide</li>
+                    <li>FAQs</li>
+                    <li>Copyright Dispute Policy</li>
+                </div>
+            </div>
+            <div id="customer-service" class="col">
+                <span class="widget-title">CUSTOMER SERVICES</span>
+                <div class="is-divider small"></div>
+                <div class="footer-ul">
+                    <li>Returns and Refunds Policy</li>
+                    <li>Privacy Policy</li>
+                    <li>Terms of Service</li>
+                    <li>Payment Policy</li>
+                    <li>Secure Shopping</li>
+                    <li>Shipping Policy</li>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- <div class="footer-container">
             <div class="footer-section">
                 <h3>О компании</h3>
                 <p>Мы предоставляем лучшие услуги для вас.</p>
@@ -100,7 +142,7 @@
                 <a href="#">Twitter</a>
             </div>
         </div>
-        <p class="footer-copy">&copy; 2025 Все права защищены</p>
+        <p class="footer-copy">&copy; 2025 Все права защищены</p> -->
     </footer>
     <script>
         const video = document.getElementById("myVideo");
